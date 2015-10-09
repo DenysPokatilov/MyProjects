@@ -16,39 +16,36 @@ namespace MyPractice
 
         public void Run(string[] args)
         {
-            if (args.Length == 0)
+            string url = args.Length == 0 ? null : args[0];
+            while (url == null)
             {
-                Console.WriteLine("Enter any url adress, like this type http://www.vk.com");
+                Console.WriteLine("Веедите url адрес");
+                url = Console.ReadLine();
             }
-            else
+
+
+
+            using (Stream responseStream = WebRequest.Create(url).GetResponse().GetResponseStream())
             {
-                Console.ReadLine();
-                foreach (var arg in args)
+                using (StreamReader responceReader = new StreamReader(responseStream))
                 {
-                    if (arg == "-url")
+             
+                    while (responceReader.Peek() >= 0)
                     {
-                       
-                        using (Stream responceStream = WebRequest.Create(arg).GetResponse().GetResponseStream())
-
-                        using (StreamReader responceReader = new StreamReader(responceStream))
-                        {
-                            Console.WriteLine("It works!");
-                            while (responceReader.Peek() >= 0)
-                            {
-                                Console.WriteLine(responceReader.ReadLine());
-                            }
-                        }
+                        Console.WriteLine(responceReader.ReadLine());
                     }
-
-                    Console.ReadKey();
                 }
 
             }
-
-
         }
+
+
     }
 }
+
+
+
+
 
 
 
