@@ -1,5 +1,8 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
 namespace BasicExercises
 {
 
@@ -74,32 +77,63 @@ namespace BasicExercises
 
 
             } while (line.Length != 0);
-        }
-           
 
-          public void Factorial()
+        }
+
+
+        public void Factorial()
         {
             Console.WriteLine("Введите число факториал которго вы хотели бы найти!");
-            
-              int factorial =Convert.ToInt32( Console.ReadLine());
-              if (factorial == null)
-              {
-                  Console.WriteLine("в не ввели значение факториала, Введите число факториал которго вы хотели бы найти!");
-              }
-              else
-              {
-                  int a = 1;
-                  for (int i = 0; i <= factorial; i++)
-                  {
-                      a *= i;
-                  }
-                  Console.WriteLine(a);
-              }
-          
-          
-          }
 
-        public void Fibanachi() { }
+            int factorial = int.Parse(Console.ReadLine());
+            if (factorial == 0)
+            {
+                Console.WriteLine("вы не ввели значение факториала, Введите число факториал которго вы хотели бы найти!");
+            }
+            else
+            {
+                int a = 1;
+                for (int i = 1; i <= factorial; i++)
+                {
+                    a = i * a;
+                }
+                Console.WriteLine("Факториал вашего числа равен {0}", a);
+            }
+
+
+        }
+
+        public void Fibanachi()
+        {
+            Console.WriteLine("Введите число N для вычисления ряда Фибоначчи");
+
+            int N = int.Parse(Console.ReadLine());
+
+            {
+                if (N == 0)
+                {
+                    Console.WriteLine(" Число должно быть > 0");
+                }
+                else
+                {
+                    int i;
+                    double x = 1; // начальное значение
+                    double y = 0;
+                    double m = 0; // для предыдущего числа
+                    for (i = 1; i < N; i++)
+                    {
+                        y = x + m;
+                        m = x;
+                        x = y;
+                        Console.Write("{0} ,", y);
+                    }
+
+
+                }
+            }
+
+
+        }
 
         public void Months() { }
 
@@ -111,7 +145,57 @@ namespace BasicExercises
 
         public void Statistics() { }
 
-        public void CaesarCipher() { }
+        public void CaesarCipher()
+        {
+            // Реализация шифра цезаря происходит при помощи замены буквы алфавита на ту букву,
+            // номер которой указан после нее в алфавите со сдвигом вправо!
+            // Exemple: мы выбрали букву G , то для нее мы берем букву, 
+            // которая находиться через 2 символа алфавита , то есть G =>E =>F. Шифруем G как F
+
+            Console.WriteLine("Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.");
+            Console.WriteLine();
+            string s = "Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.";
+            Console.WriteLine("величину сдвига равна 2  ");
+
+            uint shift = 2;
+            string result = "";
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                //Если не кириллица
+                if (((int)(s[i]) < 1040) || ((int)(s[i]) > 1103))
+                    result += s[i];
+                //Если буква является строчной
+                if ((Convert.ToInt16(s[i]) >= 1072) && (Convert.ToInt16(s[i]) <= 1103))
+                {
+                    //Если буква, после сдвига выходит за пределы алфавита
+                    if (Convert.ToInt16(s[i]) + shift > 1103)
+                        //Добавление в строку результатов символ
+                        result += Convert.ToChar(Convert.ToInt16(s[i]) + shift - 32);
+                    //Если буква может быть сдвинута в пределах алфавита
+                    else
+                        //Добавление в строку результатов символ
+                        result += Convert.ToChar(Convert.ToInt16(s[i]) + shift);
+                }
+                //Если буква является прописной
+                if ((Convert.ToInt16(s[i]) >= 1040) && (Convert.ToInt16(s[i]) <= 1071))
+                {
+                    //Если буква, после сдвига выходит за пределы алфавита
+                    if (Convert.ToInt16(s[i]) + shift > 1071)
+                        //Добавление в строку результатов символ
+                        result += Convert.ToChar(Convert.ToInt16(s[i]) + shift - 32);
+                    //Если буква может быть сдвинута в пределах алфавита
+                    else
+                        //Добавление в строку результатов символ
+                        result += Convert.ToChar(Convert.ToInt16(s[i]) + shift);
+                }
+            }
+            //Вывод на экран зашифрованной строки
+            Console.WriteLine("Строка успешно зашифрована!");
+            Console.WriteLine(result);
+        }
+
+
 
         public void DisplayTasksMenu()
         {
