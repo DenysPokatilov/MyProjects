@@ -25,7 +25,7 @@ namespace BasicExercises
                 
                 line = Console.ReadLine();
 
-                if (line.Length == 0){DisplayTasksMenu();}
+                if (line == null){DisplayTasksMenu();}
                 if (line == "q"){Console.WriteLine("See you next time! Aloha!"); Exit();}
                 else
                 {   try {                   
@@ -43,7 +43,7 @@ namespace BasicExercises
                                 break;
                             case "6": Console.WriteLine("Поиск слова в строке."); SearchWord();
                                 break;
-                            case "7": Console.WriteLine("Статистика гласных в строке."); Statistics();
+                            case "7": Console.WriteLine("Статистика гласных в строке."); StatisticsVowels();
                                 break;
                             case "8": Console.WriteLine("Шифр Цезаря."); CaesarCipher();
                                 break;
@@ -70,6 +70,10 @@ namespace BasicExercises
             if (factorial == 0)
             {
                 Console.WriteLine("вы не ввели значение факториала, Введите число факториал которго вы хотели бы найти!");
+               
+                {
+                    
+                }
             }
             else
             {
@@ -124,8 +128,29 @@ namespace BasicExercises
 
         public void SearchWord() { }
 
-        public void Statistics() { }
+        public void StatisticsVowels() 
+        {
+             //Console.WriteLine("Введите строку для подсчета в ней гласных");
+            string row = "Покатилов Денис";
+            string vowels = "АаУуЕеОоЯяЭэИиЮю";
+            if (row == null) { Console.WriteLine("Вы не ввели строку для подсчета гласных букв"); }
+            else
+            {
+                for (int i = 1; i < row.Length; i++)
 
+                    for (int j = 1; j < vowels.Length; j++)
+                    {
+                        if (row[j] == vowels[i])
+                        {
+                            int count = 1;
+                            Console.WriteLine("{0}-{1}", count, row[i]);
+                            count++;
+                        }
+                    }
+            }
+        
+        }
+        //else { Console.WriteLine("В вашей строке гласных букв нет"); }
         public void CaesarCipher()
         {
             // Реализация шифра цезаря происходит при помощи замены буквы алфавита на ту букву,
