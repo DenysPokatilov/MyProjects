@@ -22,59 +22,40 @@ namespace BasicExercises
 
             do
             {
+                
                 line = Console.ReadLine();
 
-                if (line.Length == 0)
-                {
-                    DisplayTasksMenu();
-                }
-                if (line == "q")
-                {
-                    Console.WriteLine("See you next time! Aloha!");
-                    Exit();
-                }
+                if (line.Length == 0){DisplayTasksMenu();}
+                if (line == "q"){Console.WriteLine("See you next time! Aloha!"); Exit();}
                 else
-                {
-                    try
-                    {
-                        //string commands = Console.ReadLine();
-                        switch (line)
-                        {
-                            case "1": Console.WriteLine(" Факториал.");
-                                Factorial();
+                {   try {                   
+                          switch (line)
+                          {
+                            case "1": Console.WriteLine(" Факториал."); Factorial();
                                 break;
-                            case "2": Console.WriteLine(" Ряд Фибоначчи.");
-                                Fibanachi();
+                            case "2": Console.WriteLine(" Ряд Фибоначчи."); Fibanachi();
                                 break;
-                            case "3": Console.WriteLine("Имя месяца по его номеру на указанном языке.");
-                                Months();
+                            case "3": Console.WriteLine("Имя месяца по его номеру на указанном языке."); Months();
                                 break;
-                            case "4": Console.WriteLine("Перевернуть строку наоборот.");
-                                Flip();
+                            case "4": Console.WriteLine("Перевернуть строку наоборот."); Flip();
                                 break;
-                            case "5": Console.WriteLine(" Посчитать количество слов в строке.");
-                                Count();
+                            case "5": Console.WriteLine(" Посчитать количество слов в строке."); Count();
                                 break;
-                            case "6": Console.WriteLine("Поиск слова в строке.");
-                                SearchWord();
+                            case "6": Console.WriteLine("Поиск слова в строке."); SearchWord();
                                 break;
-                            case "7": Console.WriteLine("Статистика гласных в строке.");
-                                Statistics();
+                            case "7": Console.WriteLine("Статистика гласных в строке."); Statistics();
                                 break;
-                            case "8": Console.WriteLine("Шифр Цезаря.");
-                                CaesarCipher();
+                            case "8": Console.WriteLine("Шифр Цезаря."); CaesarCipher();
                                 break;
                             default:
                                 Console.WriteLine("Неправельный ввод!!!");
                                 break;
-                        }
+                          }
                     }
                     catch (Exception ex) { Console.WriteLine(ex.Message); }
                 }
-
-
+                
                 Console.ReadLine();
-
 
             } while (line.Length != 0);
 
@@ -221,4 +202,4 @@ namespace BasicExercises
 }
 
 
-//  string input = args.Length == 0 ? null : args[0]; 
+//  string input = args.Length == 0 ? null : args[0];
