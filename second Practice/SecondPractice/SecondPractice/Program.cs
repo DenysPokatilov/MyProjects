@@ -3,28 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Collections;
+using System.Collections.Specialized;
 namespace BasicExercises
 {
 
     public class Program
     {
-
-
         public static void Main(string[] args)
-        {
-            new Program().Run(args);
+        {  
+            new Program().Run(args);  
         }
         public void Run(string[] args)
         {
             DisplayTasksMenu();
-
             string line;
-
             do
-            {
-                
+            {            
                 line = Console.ReadLine();
-
                 if (line == null){DisplayTasksMenu();}
                 if (line == "q"){Console.WriteLine("See you next time! Aloha!"); Exit();}
                 else
@@ -53,28 +49,17 @@ namespace BasicExercises
                           }
                     }
                     catch (Exception ex) { Console.WriteLine(ex.Message); }
-                }
-                
+                }       
                 Console.ReadLine();
-
             } while (line.Length != 0);
-
         }
-
 
         public void Factorial()
         {
             Console.WriteLine("Введите число факториал которго вы хотели бы найти!");
-
             int factorial = int.Parse(Console.ReadLine());
             if (factorial == 0)
-            {
-                Console.WriteLine("вы не ввели значение факториала, Введите число факториал которго вы хотели бы найти!");
-               
-                {
-                    
-                }
-            }
+            { Console.WriteLine("вы не ввели значение факториала, Введите число факториал которго вы хотели бы найти!"); }
             else
             {
                 int a = 1;
@@ -84,24 +69,17 @@ namespace BasicExercises
                 }
                 Console.WriteLine("Факториал вашего числа равен {0}", a);
             }
-
-
         }
 
         public void Fibanachi()
-        {
-            Console.WriteLine("Введите число N для вычисления ряда Фибоначчи");
-
+        {   Console.WriteLine("Введите число N для вычисления ряда Фибоначчи");
             int N = int.Parse(Console.ReadLine());
-
-            {
-                if (N == 0)
+            {   if (N == 0)
                 {
                     Console.WriteLine(" Число должно быть > 0");
                 }
                 else
-                {
-                    int i;
+                {   int i;
                     double x = 1; // начальное значение
                     double y = 0;
                     double m = 0; // для предыдущего числа
@@ -112,21 +90,89 @@ namespace BasicExercises
                         x = y;
                         Console.Write("{0} ,", y);
                     }
+                }
+            }
+        }
 
+        public void Months()
+        {
+            Console.WriteLine("Choose the language ");
+            Console.WriteLine("1 - Русский");
+             Console.WriteLine("2 - English");
+             Console.WriteLine("3 - Français");
+             Console.WriteLine("4 - Український");
+             Console.WriteLine("5 - Polskie");
+             string month = Console.ReadLine();
 
+            switch (month)
+            {  case "1":
+                    Console.WriteLine("Выберите номер месяца");
+                    string number = Console.ReadLine();
+                  //  var montH = new OrderedDictionary{ 
+                  //  { "1","Январь"},
+                  //  {"2","Февраль"}
+                  // };
+                    
+                  //foreach (string number in montH)
+                  //   {
+                  //       Console.WriteLine("{0}"number);
+                  //   } 
+                  //  {
+                  //      Console.WriteLine(number.);
+                  //  }                                                      
+            
+
+                    break;
+                case "2":
+                    Console.WriteLine("Choose the number of month");
+                    break;
+                case "3":
+                    Console.WriteLine("Sélectionnez le mois");
+                    break;
+                case "4":
+                    Console.WriteLine("Виберіть номер місяця");
+                    break;
+                case "5":
+                    Console.WriteLine("Wybierz miesiąc");
+                    break;
+
+                default: Console.WriteLine("Не правельный ввод");
+                    break;
+            } 
+        }
+
+        public void Flip()
+        {
+            Console.WriteLine("Введите строку для трасформации ");
+            string input = Console.ReadLine();
+            string output = new string(input.ToCharArray().Reverse().ToArray());
+            Console.WriteLine(output);
+        }
+
+        public void Count()
+        {
+            Console.WriteLine(" Введите строку с производным количеством слов ");
+            string row = Console.ReadLine();
+            string [] words = row.Split(new Char [] {' '});            
+            Console.WriteLine("В строке {0} слов" ,words.Length);                   
+        }
+
+        public void SearchWord()
+        {
+            Console.WriteLine(" Введите стоку из произвольного количества слов");
+            string row = Console.ReadLine();
+            string[] words = row.Split(new Char []{' '});
+            Console.WriteLine("Введите слово которое вы хотели бы найти в строке");
+            string word = Console.ReadLine();
+            for (int i = 1; i < words.Length -1; i++)
+            {        
+                if (words[i]== word)
+                {   
+                    Console.WriteLine("да мы имеем слово - {0}, the number or row is {1}",word,i+1);
                 }
             }
 
-
         }
-
-        public void Months() { }
-
-        public void Flip() { }
-
-        public void Count() { }
-
-        public void SearchWord() { }
 
         public void StatisticsVowels() 
         {
@@ -200,8 +246,6 @@ namespace BasicExercises
             Console.WriteLine("Строка успешно зашифрована!");
             Console.WriteLine(result);
         }
-
-
 
         public void DisplayTasksMenu()
         {
