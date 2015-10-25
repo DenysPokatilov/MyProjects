@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Collections;
 using System.Collections.Specialized;
+
 namespace BasicExercises
 {
 
@@ -22,7 +23,7 @@ namespace BasicExercises
             {            
                 line = Console.ReadLine();
                 if (line == null){DisplayTasksMenu();}
-                if (line == "q"){Console.WriteLine("See you next time! Aloha!"); Exit();}
+                if (line == "q" | line=="Q"){Console.WriteLine("See you next time! Aloha!"); Exit();}
                 else
                 {   try {                   
                           switch (line)
@@ -33,7 +34,7 @@ namespace BasicExercises
                                 break;
                             case "3": Console.WriteLine("Имя месяца по его номеру на указанном языке."); Months();
                                 break;
-                            case "4": Console.WriteLine("Перевернуть строку наоборот."); Flip();
+                             case "4": Console.WriteLine("Перевернуть строку наоборот."); Flip();
                                 break;
                             case "5": Console.WriteLine(" Посчитать количество слов в строке."); Count();
                                 break;
@@ -95,7 +96,7 @@ namespace BasicExercises
         }
 
         public void Months()
-        {
+        {   
             Console.WriteLine("Choose the language ");
             Console.WriteLine("1 - Русский");
              Console.WriteLine("2 - English");
@@ -103,42 +104,49 @@ namespace BasicExercises
              Console.WriteLine("4 - Український");
              Console.WriteLine("5 - Polskie");
              string month = Console.ReadLine();
+             if (month == null)
+             {
+                 Console.WriteLine("вы не выбрали язык ");
+             }
+             else
+             {
+                 switch (month)
+                 {
+                     case "1":
+                         Console.WriteLine("Выберите номер месяца");
+                         string number = Console.ReadLine();
+                         //  var montH = new OrderedDictionary{ 
+                         //  { "1","Январь"},
+                         //  {"2","Февраль"}
+                         // };
 
-            switch (month)
-            {  case "1":
-                    Console.WriteLine("Выберите номер месяца");
-                    string number = Console.ReadLine();
-                  //  var montH = new OrderedDictionary{ 
-                  //  { "1","Январь"},
-                  //  {"2","Февраль"}
-                  // };
-                    
-                  //foreach (string number in montH)
-                  //   {
-                  //       Console.WriteLine("{0}"number);
-                  //   } 
-                  //  {
-                  //      Console.WriteLine(number.);
-                  //  }                                                      
-            
+                         //foreach (string number in montH)
+                         //   {
+                         //       Console.WriteLine("{0}"number);
+                         //   } 
+                         //  {
+                         //      Console.WriteLine(number.);
+                         //  }                                                      
 
-                    break;
-                case "2":
-                    Console.WriteLine("Choose the number of month");
-                    break;
-                case "3":
-                    Console.WriteLine("Sélectionnez le mois");
-                    break;
-                case "4":
-                    Console.WriteLine("Виберіть номер місяця");
-                    break;
-                case "5":
-                    Console.WriteLine("Wybierz miesiąc");
-                    break;
 
-                default: Console.WriteLine("Не правельный ввод");
-                    break;
-            } 
+                         break;
+                     case "2":
+                         Console.WriteLine("Choose the number of month");
+                         break;
+                     case "3":
+                         Console.WriteLine("Sélectionnez le mois");
+                         break;
+                     case "4":
+                         Console.WriteLine("Виберіть номер місяця");
+                         break;
+                     case "5":
+                         Console.WriteLine("Wybierz miesiąc");
+                         break;
+
+                     default: Console.WriteLine("Не правельный ввод");
+                         break;
+                 }
+             }
         }
 
         public void Flip()
