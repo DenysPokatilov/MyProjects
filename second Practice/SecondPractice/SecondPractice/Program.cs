@@ -284,25 +284,28 @@ namespace BasicExercises
 
         public void StatisticsVowels() 
         {
-             //Console.WriteLine("Введите строку для подсчета в ней гласных");
-            string row = "Покатилов Денис";
+             Console.WriteLine("Введите строку для подсчета в ней гласных");
+            string stroka = Console.ReadLine();
             string vowels = "АаУуЕеОоЯяЭэИиЮю";
-            if (row == null) { Console.WriteLine("Вы не ввели строку для подсчета гласных букв"); }
+            if (stroka == null) { Console.WriteLine("Вы не ввели строку для подсчета гласных букв"); }
             else
+            {   int counter = 0;
+            for (int i = 0; i < stroka.Length; i++)
             {
-                for (int i = 1; i < row.Length; i++)
-
-                    for (int j = 1; j < vowels.Length; j++)
+                for (int j = 0; j < vowels.Length; j++)
+                {
+                    if (stroka[i]==vowels[j])
                     {
-                        if (row[j] == vowels[i])
-                        {
-                            int count = 1;
-                            Console.WriteLine("{0}-{1}", count, row[i]);
-                            count++;
-                        }
+                        Console.WriteLine("{0}-{1}",counter,stroka[i]);
+                        counter++;
                     }
+                }
             }
-        
+            }
+
+
+
+
         }
         //else { Console.WriteLine("В вашей строке гласных букв нет"); }
         public void CaesarCipher()
@@ -313,46 +316,15 @@ namespace BasicExercises
             // которая находиться через 2 символа алфавита , то есть G =>E =>F. Шифруем G как F
 
             Console.WriteLine("Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.");
-            Console.WriteLine();
-            string s = "Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.";
+           
+            string text = "Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.";
             Console.WriteLine("величину сдвига равна 2  ");
+            int key = 2;
+            byte[] arr = Encoding.Unicode.GetBytes(text);
 
-            uint shift = 2;
-            string result = "";
+            
 
-            for (int i = 0; i < s.Length; i++)
-            {
-                //Если не кириллица
-                if (((int)(s[i]) < 1040) || ((int)(s[i]) > 1103))
-                    result += s[i];
-                //Если буква является строчной
-                if ((Convert.ToInt16(s[i]) >= 1072) && (Convert.ToInt16(s[i]) <= 1103))
-                {
-                    //Если буква, после сдвига выходит за пределы алфавита
-                    if (Convert.ToInt16(s[i]) + shift > 1103)
-                        //Добавление в строку результатов символ
-                        result += Convert.ToChar(Convert.ToInt16(s[i]) + shift - 32);
-                    //Если буква может быть сдвинута в пределах алфавита
-                    else
-                        //Добавление в строку результатов символ
-                        result += Convert.ToChar(Convert.ToInt16(s[i]) + shift);
-                }
-                //Если буква является прописной
-                if ((Convert.ToInt16(s[i]) >= 1040) && (Convert.ToInt16(s[i]) <= 1071))
-                {
-                    //Если буква, после сдвига выходит за пределы алфавита
-                    if (Convert.ToInt16(s[i]) + shift > 1071)
-                        //Добавление в строку результатов символ
-                        result += Convert.ToChar(Convert.ToInt16(s[i]) + shift - 32);
-                    //Если буква может быть сдвинута в пределах алфавита
-                    else
-                        //Добавление в строку результатов символ
-                        result += Convert.ToChar(Convert.ToInt16(s[i]) + shift);
-                }
-            }
-            //Вывод на экран зашифрованной строки
-            Console.WriteLine("Строка успешно зашифрована!");
-            Console.WriteLine(result);
+            
         }
 
         public void DisplayTasksMenu()
