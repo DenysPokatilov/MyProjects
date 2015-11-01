@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Collections;
 using System.Collections.Specialized;
+using SecondPractice;
 
 namespace BasicExercises
 {
@@ -115,7 +116,7 @@ namespace BasicExercises
                  {
                      case "1":
                          Console.WriteLine("Выберите номер месяца");
-                         var inputRus = Convert.ToInt32(Console.ReadLine());              
+                         int inputRus = Convert.ToInt32(Console.ReadLine());              
                          var elementRus = new Dictionary<int, string>();
                          elementRus.Add(1, "Январь");elementRus.Add(2, "Февраль");
                          elementRus.Add(3, "Март");elementRus.Add(4, "Апрель");
@@ -140,7 +141,7 @@ namespace BasicExercises
                          break;
                      case "2":
                          Console.WriteLine("Choose the number of month");
-                          var inputEng = Convert.ToInt32(Console.ReadLine());              
+                          int inputEng = Convert.ToInt32(Console.ReadLine());              
                          var elementEng = new Dictionary<int, string>();
                          elementEng.Add(1, "January");elementEng.Add(2, "Februaury");
                          elementEng.Add(3, "March");elementEng.Add(4, "April");
@@ -167,7 +168,7 @@ namespace BasicExercises
                          break;
                      case "3":
                          Console.WriteLine("Sélectionnez le mois");
-                          var inputFr = Convert.ToInt32(Console.ReadLine());              
+                          int inputFr = Convert.ToInt32(Console.ReadLine());              
                          var elementFr = new Dictionary<int, string>();
                          elementFr.Add(1, "Janvier");elementFr.Add(2, "Fevrier");
                          elementFr.Add(3, "Mars");elementFr.Add(4, "Avril");
@@ -192,7 +193,7 @@ namespace BasicExercises
                          break;
                      case "4":
                          Console.WriteLine("Виберіть номер місяця");
-                           var inputUkr = Convert.ToInt32(Console.ReadLine());
+                           int inputUkr = Convert.ToInt32(Console.ReadLine());
                            var elementUkr = new Dictionary<int, string>();
                          elementUkr.Add(1, "Сiчень");elementUkr.Add(2, "Лютий");
                          elementUkr.Add(3, "Березень");elementUkr.Add(4, "Квiтень");
@@ -218,7 +219,7 @@ namespace BasicExercises
                          break;
                      case "5":
                          Console.WriteLine("Wybierz miesiąc");
-                          var inputPl = Convert.ToInt32(Console.ReadLine());
+                          int inputPl = Convert.ToInt32(Console.ReadLine());
                           var elementPl = new Dictionary<int, string>();
                          elementPl.Add(1, "tyczeń");elementPl.Add(2, "luty");
                          elementPl.Add(3, "marzec ");elementPl.Add(4, "kwiecień ");
@@ -302,10 +303,6 @@ namespace BasicExercises
                 }
             }
             }
-
-
-
-
         }
         //else { Console.WriteLine("В вашей строке гласных букв нет"); }
         public void CaesarCipher()
@@ -314,17 +311,36 @@ namespace BasicExercises
             // номер которой указан после нее в алфавите со сдвигом вправо!
             // Exemple: мы выбрали букву G , то для нее мы берем букву, 
             // которая находиться через 2 символа алфавита , то есть G =>E =>F. Шифруем G как F
-
             Console.WriteLine("Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.");
-           
-            string text = "Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.";
+            string value = "Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.";
             Console.WriteLine("величину сдвига равна 2  ");
-            int key = 2;
-            byte[] arr = Encoding.Unicode.GetBytes(text);
+            int shift = 2;
 
-            
-
-            
+            if (value == null)
+            {
+                Console.WriteLine("данные для шифрования отсутствуют");
+            }
+            else
+            {
+                char[] buffer = value.ToCharArray();
+                for (int i = 0; i < buffer.Length; i++)
+                {
+                    char letter = buffer[i];
+                    letter = (char)(letter + shift);
+                     
+                     if (letter > 'z')
+                    {
+                        letter = (char)(letter - 26);
+                    }
+                    else if (letter < 'a')
+                    {
+                        letter = (char)(letter + 26);
+                    }
+                   
+                    buffer[i] = letter;
+                    Console.Write(letter);
+                }
+            }
         }
 
         public void DisplayTasksMenu()
