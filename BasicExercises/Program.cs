@@ -77,7 +77,31 @@ namespace BasicExercises
             }
         }
 
-        public void Fibanachi() { }
+        public void Fibanachi() 
+        {
+            Console.WriteLine("Введите число N для вычисления ряда Фибоначчи");
+            int N = int.Parse(Console.ReadLine());
+            {
+                if (N == 0)
+                {
+                    Console.WriteLine(" Число должно быть > 0");
+                }
+                else
+                {
+                    int i;
+                    double x = 1; // начальное значение
+                    double y = 0;
+                    double m = 0; // для предыдущего числа
+                    for (i = 1; i < N; i++)
+                    {
+                        y = x + m;
+                        m = x;
+                        x = y;
+                        Console.Write("{0} ,", y);
+                    }
+                }
+            }
+        }
 
         public void Months() { }
 
