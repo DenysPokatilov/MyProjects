@@ -12,61 +12,53 @@ namespace BasicExercises
 
     public class Program
     {
-
-
         public static void Main(string[] args)
         {
             new Program().Run(args);
         }
         public void Run(string[] args)
         {
-                        
-            if (args.Length == 0)
+            DisplayTasksMenu();
+            string line;
+            do
             {
-                DisplayTasksMenu();
-            }
-            else
-            {
-                try
+                line = Console.ReadLine();
+                if (line == null) { DisplayTasksMenu(); }
+                if (line == "q" | line == "Q") { Console.WriteLine("See you next time! Aloha!"); Exit(); }
+                else
                 {
-                    string commands = Console.ReadLine();
-                    switch (commands)
+                    try
                     {
-                        case "1": Console.WriteLine(" Факториал.");
-                            Factorial();
-                            break;
-                        case "2": Console.WriteLine(" Ряд Фибоначчи.");
-                            Fibanachi();
-                            break;
-                        case "3": Console.WriteLine("Имя месяца по его номеру на указанном языке.");
-                            Months();
-                            break;
-                        case "4": Console.WriteLine("Перевернуть строку наоборот.");
-                            Flip();
-                            break;
-                        case "5": Console.WriteLine(" Посчитать количество слов в строке.");
-                            Count();
-                            break;
-                        case "6": Console.WriteLine("Поиск слова в строке.");
-                            SearchWord();
-                            break;
-                        case "7": Console.WriteLine("Статистика гласных в строке.");
-                            Statistics();
-                            break;
-                        case "8": Console.WriteLine("Шифр Цезаря.");
-                            CaesarCipher();
-                            break;
-                        default:
-                            Console.WriteLine("Неправельный ввод!!!");
-                            break;
+                        switch (line)
+                        {
+                            case "1": Console.WriteLine(" Факториал."); Factorial();
+                                break;
+                            case "2": Console.WriteLine(" Ряд Фибоначчи."); Fibanachi();
+                                break;
+                            case "3": Console.WriteLine("Имя месяца по его номеру на указанном языке."); Months();
+                                break;
+                            case "4": Console.WriteLine("Перевернуть строку наоборот."); Flip();
+                                break;
+                            case "5": Console.WriteLine(" Посчитать количество слов в строке."); Count();
+                                break;
+                            case "6": Console.WriteLine("Поиск слова в строке."); SearchWord();
+                                break;
+                            case "7": Console.WriteLine("Статистика гласных в строке."); StatisticsVowels();
+                                break;
+                            case "8": Console.WriteLine("Шифр Цезаря."); CaesarCipher();
+                                break;
+                            default:
+                                Console.WriteLine("Неправельный ввод!!!");
+                                break;
+                        }
                     }
+                    catch (Exception ex) { Console.WriteLine(ex.Message); }
                 }
-                catch (Exception ex) { Console.WriteLine(ex.Message); }
-            }
+                DisplayTasksMenu();
 
-
-            Console.ReadLine();
+            } while (line.Length != 0);
         }
+
         public void Factorial()
         {
             Console.WriteLine("Введите число факториал которго вы хотели бы найти!");
@@ -84,7 +76,7 @@ namespace BasicExercises
             }
         }
 
-        public void Fibanachi() 
+        public void Fibanachi()
         {
             Console.WriteLine("Введите число N для вычисления ряда Фибоначчи");
             int N = int.Parse(Console.ReadLine());
@@ -295,9 +287,10 @@ namespace BasicExercises
                     Console.WriteLine("да мы имеем слово - {0}, the number or row is {1}", word, i + 1);
                 }
             }
+
         }
 
-        public void Statistics()
+        public void StatisticsVowels()
         {
             Console.WriteLine("Введите строку для подсчета в ней гласных");
             string stroka = Console.ReadLine();
@@ -319,9 +312,10 @@ namespace BasicExercises
                 }
             }
         }
-
+        //else { Console.WriteLine("В вашей строке гласных букв нет"); }
         public void CaesarCipher()
-        { // Реализация шифра цезаря происходит при помощи замены буквы алфавита на ту букву,
+        {
+            // Реализация шифра цезаря происходит при помощи замены буквы алфавита на ту букву,
             // номер которой указан после нее в алфавите со сдвигом вправо!
             // Exemple: мы выбрали букву G , то для нее мы берем букву, 
             // которая находиться через 2 символа алфавита , то есть G =>E =>F. Шифруем G как F
@@ -357,8 +351,6 @@ namespace BasicExercises
             }
         }
 
-
-
         public void DisplayTasksMenu()
         {
             Console.WriteLine("Введи номер задачи из списка или q для выхода:");
@@ -375,7 +367,7 @@ namespace BasicExercises
         }
         public void Exit()
         {
-
+            Environment.Exit(0);
         }
 
     }
