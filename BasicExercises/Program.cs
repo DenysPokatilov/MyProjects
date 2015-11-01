@@ -13,7 +13,7 @@ namespace BasicExercises
         }
         public void Run(string[] args)
         {
-            //  string input = args.Length == 0 ? null : args[0];             
+                        
             if (args.Length == 0)
             {
                 DisplayTasksMenu();
@@ -60,7 +60,22 @@ namespace BasicExercises
 
             Console.ReadLine();
         }
-        public void Factorial() { }
+        public void Factorial()
+        {
+            Console.WriteLine("Введите число факториал которго вы хотели бы найти!");
+            int factorial = int.Parse(Console.ReadLine());
+            if (factorial == 0)
+            { Console.WriteLine("вы не ввели значение факториала, Введите число факториал которго вы хотели бы найти!"); }
+            else
+            {
+                int a = 1;
+                for (int i = 1; i <= factorial; i++)
+                {
+                    a = i * a;
+                }
+                Console.WriteLine("Факториал вашего числа равен {0}", a);
+            }
+        }
 
         public void Fibanachi() { }
 
