@@ -265,15 +265,97 @@ namespace BasicExercises
             }
         }
 
-        public void Flip() { }
+        public void Flip()
+        {
+            Console.WriteLine("Введите строку для трасформации ");
+            string input = Console.ReadLine();
+            string output = new string(input.ToCharArray().Reverse().ToArray());
+            Console.WriteLine(output);
+        }
 
-        public void Count() { }
+        public void Count()
+        {
+            Console.WriteLine(" Введите строку с производным количеством слов ");
+            string row = Console.ReadLine();
+            string[] words = row.Split(new Char[] { ' ' });
+            Console.WriteLine("В строке {0} слов", words.Length);
+        }
 
-        public void SearchWord() { }
+        public void SearchWord()
+        {
+            Console.WriteLine(" Введите стоку из произвольного количества слов");
+            string row = Console.ReadLine();
+            string[] words = row.Split(new Char[] { ' ' });
+            Console.WriteLine("Введите слово которое вы хотели бы найти в строке");
+            string word = Console.ReadLine();
+            for (int i = 1; i < words.Length - 1; i++)
+            {
+                if (words[i] == word)
+                {
+                    Console.WriteLine("да мы имеем слово - {0}, the number or row is {1}", word, i + 1);
+                }
+            }
+        }
 
-        public void Statistics() { }
+        public void Statistics()
+        {
+            Console.WriteLine("Введите строку для подсчета в ней гласных");
+            string stroka = Console.ReadLine();
+            string vowels = "АаУуЕеОоЯяЭэИиЮю";
+            if (stroka == null) { Console.WriteLine("Вы не ввели строку для подсчета гласных букв"); }
+            else
+            {
+                int counter = 0;
+                for (int i = 0; i < stroka.Length; i++)
+                {
+                    for (int j = 0; j < vowels.Length; j++)
+                    {
+                        if (stroka[i] == vowels[j])
+                        {
+                            Console.WriteLine("{0}-{1}", counter, stroka[i]);
+                            counter++;
+                        }
+                    }
+                }
+            }
+        }
 
-        public void CaesarCipher() { }
+        public void CaesarCipher()
+        { // Реализация шифра цезаря происходит при помощи замены буквы алфавита на ту букву,
+            // номер которой указан после нее в алфавите со сдвигом вправо!
+            // Exemple: мы выбрали букву G , то для нее мы берем букву, 
+            // которая находиться через 2 символа алфавита , то есть G =>E =>F. Шифруем G как F
+            Console.WriteLine("Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.");
+            string value = "Unlike many of its sub-Saharan neighbors, however, which have embraced economic growth at the expense of environmental protections, Ethiopia has embarked on one of the world’s most ambitious green growth and climate mitigation programs.";
+            Console.WriteLine("величину сдвига равна 2  ");
+            int shift = 2;
+
+            if (value == null)
+            {
+                Console.WriteLine("данные для шифрования отсутствуют");
+            }
+            else
+            {
+                char[] buffer = value.ToCharArray();
+                for (int i = 0; i < buffer.Length; i++)
+                {
+                    char letter = buffer[i];
+                    letter = (char)(letter + shift);
+
+                    if (letter > 'z')
+                    {
+                        letter = (char)(letter - 26);
+                    }
+                    else if (letter < 'a')
+                    {
+                        letter = (char)(letter + 26);
+                    }
+
+                    buffer[i] = letter;
+                    Console.Write(letter);
+                }
+            }
+        }
 
 
 
