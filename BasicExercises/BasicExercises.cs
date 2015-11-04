@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.IO;
-using System.Collections;
-using System.Collections.Specialized;
 
-namespace BasicExercises
+namespace MyProjects
 {
 
-    public class Program
+    public class BasicExercises
     {
+
         public static void Main(string[] args)
         {
-            new Program().Run(args);
+            new BasicExercises().Run(args);
         }
+
         public void Run(string[] args)
         {
             DisplayTasksMenu();
@@ -311,7 +309,7 @@ namespace BasicExercises
                 }
             }
         }
-        //else { Console.WriteLine("В вашей строке гласных букв нет"); }
+
         public void CaesarCipher()
         {
             // Реализация шифра цезаря происходит при помощи замены буквы алфавита на ту букву,
