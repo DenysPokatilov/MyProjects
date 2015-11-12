@@ -20,16 +20,15 @@ namespace MyProjects
             do
             {
                 line = Console.ReadLine();
-                if (line == null) { DisplayTasksMenu(); }
-                if (line == "q" || line == "Q") { Console.WriteLine("See you next time! Aloha!"); Exit(); }
-                else
+                if (line == "q" || line == "Q") 
+                { Console.WriteLine("See you next time! Aloha!"); 
+                    Exit();
+                }    
+                if (line == null)
                 {
-                    if (line == null)
-                    {
                         DisplayTasksMenu();
-                    }
-
-                    else
+                }
+                else
                     {
                         switch (line)
                         {
@@ -59,9 +58,9 @@ namespace MyProjects
                                 break;
                         }
                     }
-
-
-                }
+                Console.WriteLine("введите ENTER, для продолжения работы с меню!");
+                Console.ReadKey();
+                Console.WriteLine();
                 DisplayTasksMenu();
 
             } while (line.Length != 0);

@@ -1,0 +1,9 @@
+D:\Projects\MyProjects\WebClient\bin\Debug\WebClient.exe.config
+D:\Projects\MyProjects\WebClient\bin\Debug\WebClient.exe
+D:\Projects\MyProjects\WebClient\bin\Debug\WebClient.pdb
+D:\Projects\MyProjects\WebClient\obj\Debug\WebClient.csprojResolveAssemblyReference.cache
+D:\Projects\MyProjects\WebClient\obj\Debug\WebClient.exe
+D:\Projects\MyProjects\WebClient\obj\Debug\WebClient.pdb
+D:\Projects\MyPractice\WebClient\bin\Debug\WebClient.exe.config
+D:\Projects\MyPractice\WebClient\obj\Debug\WebClient.exe
+D:\Projects\MyPractice\WebClient\obj\Debug\WebClient.pdb
