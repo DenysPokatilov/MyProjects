@@ -23,7 +23,7 @@ namespace BasicExercises
             {
                 line = Console.ReadLine();
                 if (line == null) { DisplayTasksMenu(); }
-                if (line == "q" | line == "Q") { Console.WriteLine("See you next time! Aloha!"); Exit(); }
+                if (line == "q" || line == "Q") { Console.WriteLine("See you next time! Aloha!"); Exit(); }
                 else
                 {
                     try
@@ -62,8 +62,8 @@ namespace BasicExercises
         {
             Console.WriteLine("Введите число факториал которго вы хотели бы найти!");
             int factorial = int.Parse(Console.ReadLine());
-            if (factorial == 0)
-            { Console.WriteLine("вы не ввели значение факториала, Введите число факториал которго вы хотели бы найти!"); }
+            if (factorial == 0){ Console.WriteLine("особый случай, факториал  равен 1!"); }
+            if (factorial < 0) { Console.WriteLine("ошибка! вы ввели отрицательное цисло"  ); }
             else
             {
                 int a = 1;
