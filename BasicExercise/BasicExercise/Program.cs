@@ -33,7 +33,7 @@ namespace MyProjects
                     {
                         switch (line)
                         {
-                          
+
                             case "1": Console.WriteLine(" Факториал.");
                                 Factorial();
                                 break;
@@ -342,5 +342,4 @@ namespace MyProjects
     }
 
 }
-
 
