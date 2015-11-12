@@ -225,8 +225,9 @@ namespace MyProjects
                         }
                         break;
 
-                    default: Console.WriteLine("input is not correct");// на отдельной строке! 
-                        break; // в ветке default это не нужно
+                    //default: 
+                    //    Console.WriteLine("input is not correct");// на отдельной строке! 
+                    //    break; // в ветке default это не нужно
                 }
             }
         }
