@@ -21,7 +21,7 @@ namespace MyProjects
             {
                 line = Console.ReadLine();
                 if (line == "q" || line == "Q") 
-                { Console.WriteLine("See you next time! Aloha!"); 
+                { Console.WriteLine("See you next time! Aloha!");  // почему в одну строку? должно быть на отдельной!
                     Exit();
                 }    
                 if (line == null)
@@ -33,28 +33,28 @@ namespace MyProjects
                         switch (line)
                         {
 
-                            case "1": Console.WriteLine(" Факториал.");
+                            case "1": Console.WriteLine(" Факториал."); // почему в одну строку? должно быть на отдельной!
                                 Factorial();
                                 break;
-                            case "2": Console.WriteLine(" Ряд Фибоначчи.");
+                            case "2": Console.WriteLine(" Ряд Фибоначчи."); // почему в одну строку? должно быть на отдельной!
                                 Fibanachi();
                                 break;
-                            case "3": Console.WriteLine("Имя месяца по его номеру на указанном языке.");
+                            case "3": Console.WriteLine("Имя месяца по его номеру на указанном языке."); // почему в одну строку? должно быть на отдельной!
                                 Months();
                                 break;
-                            case "4": Console.WriteLine("Перевернуть строку наоборот.");
+                            case "4": Console.WriteLine("Перевернуть строку наоборот."); // почему в одну строку? должно быть на отдельной!
                                 Flip();
                                 break;
-                            case "5": Console.WriteLine(" Посчитать количество слов в строке.");
+                            case "5": Console.WriteLine(" Посчитать количество слов в строке."); // почему в одну строку? должно быть на отдельной!
                                 Count();
                                 break;
-                            case "6": Console.WriteLine("Поиск слова в строке.");
+                            case "6": Console.WriteLine("Поиск слова в строке."); // почему в одну строку? должно быть на отдельной!
                                 SearchWord();
                                 break;
-                            case "7": Console.WriteLine("Статистика гласных в строке.");
+                            case "7": Console.WriteLine("Статистика гласных в строке."); // почему в одну строку? должно быть на отдельной!
                                 StatisticsVowels();
                                 break;
-                            case "8": Console.WriteLine("Шифр Цезаря."); CaesarCipher();
+                            case "8": Console.WriteLine("Шифр Цезаря."); CaesarCipher(); // почему в одну строку? должно быть на отдельной!
                                 break;
                         }
                     }
@@ -70,9 +70,9 @@ namespace MyProjects
         {
             Console.WriteLine("Введите число факториал которго вы хотели бы найти!");
             int value = int.Parse(Console.ReadLine());
-            if (value == 0) { Console.WriteLine("особый случай, факториал  равен 1!"); }
-            if (value < 0) { Console.WriteLine("ошибка! вы ввели отрицательное цисло"); }
-
+            if (value == 0) { Console.WriteLine("особый случай, факториал  равен 1!"); } // почему в одну строку? должно быть на отдельной!
+            if (value < 0) { Console.WriteLine("ошибка! вы ввели отрицательное цисло"); } // почему в одну строку? должно быть на отдельной!
+            // что это ещё за пустая строка между if и else?
             else
             {
                 int factorial = 1;
@@ -88,21 +88,23 @@ namespace MyProjects
         {
             Console.WriteLine("Введите число N для вычисления ряда Фибоначчи");
             int N = int.Parse(Console.ReadLine());
-            {
+            { // <- зачем?
                 if (N == 0)
                 {
                     Console.WriteLine(" Число должно быть > 0");
                 }
                 else
                 {
-                    int i;
+                    int i; // если используется только в цикле и нигде больше, то только в цикле и должно объявляться
                     int nextValue = 1;
                     int value = 0;
                     int prevValue = 0;
 
-                    for (i = 1; i < N; i++)
+                    for (i = 1; i < N; i++) // переменную i лучше объявлять в цикле, так как больше нигде не используется
                     {
-                        value = nextValue + prevValue;
+                        // то же и с переменной value ниже - она используется только внутри цикла, поэтому в нём же
+                        // пускай и объявляется, а не где-то снаружи
+                        value = nextValue + prevValue; 
                         prevValue = nextValue;
                         nextValue = value;
                         Console.Write("{0} ,", value);
@@ -268,7 +270,11 @@ namespace MyProjects
         public void StatisticsVowels()
         {
             Console.WriteLine("Введите строку для подсчета в ней гласных");
-            string @string = Console.ReadLine();
+            string @string = Console.ReadLine(); // НИКОГДА не делай таких фокусов!!
+            // Если что-то является зарезервированным ключевым словом, как string в данном случае,
+            // то используй какое-то другое слово, а это оставь в покое. Никогда не используй
+            // такие хитрости, как прицепить где-то _ или @, как ты поступил здесь. Это только
+            // запутывает и считается дурным тоном.
             string vowels = "АаУуЕеОоЯяЭэИиЮю";
             if (@string == null) { Console.WriteLine("Вы не ввели строку для подсчета гласных букв"); }
             else
@@ -334,6 +340,7 @@ namespace MyProjects
             Console.WriteLine("8. Шифр Цезаря.");
             Console.WriteLine("");
         }
+
         public void Exit()
         {
             Environment.Exit(0);
