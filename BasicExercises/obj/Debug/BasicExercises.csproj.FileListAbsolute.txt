@@ -1,6 +1,0 @@
-d:\Projects\DenysPokatilov\MyProjects\BasicExercises\bin\Debug\BasicExercises.exe.config
-d:\Projects\DenysPokatilov\MyProjects\BasicExercises\bin\Debug\BasicExercises.exe
-d:\Projects\DenysPokatilov\MyProjects\BasicExercises\bin\Debug\BasicExercises.pdb
-d:\Projects\DenysPokatilov\MyProjects\BasicExercises\obj\Debug\BasicExercises.csprojResolveAssemblyReference.cache
-d:\Projects\DenysPokatilov\MyProjects\BasicExercises\obj\Debug\BasicExercises.exe
-d:\Projects\DenysPokatilov\MyProjects\BasicExercises\obj\Debug\BasicExercises.pdb
