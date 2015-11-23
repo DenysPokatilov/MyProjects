@@ -7,8 +7,8 @@
     <ProjectGuid>{C058024D-654A-4D28-A0CC-30ADDCE40E75}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BasicExercise</RootNamespace>
-    <AssemblyName>BasicExercise</AssemblyName>
+    <RootNamespace>BasicExercises</RootNamespace>
+    <AssemblyName>BasicExercises</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BasicExercises.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
